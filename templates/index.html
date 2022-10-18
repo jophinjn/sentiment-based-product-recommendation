@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Model Deployment</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <style>
+      body {
+        font-family: 'Tangerine', serif;
+        font-size: 28px;
+      }
+    </style>
+</head>
+
+<body align="center" style="background-color:rgba(234, 238, 16, 0.55);">
+ <div>
+	<h1 style="text-align:center;color:#1100ff;">Sentiment Based Product Recommendation System</h1>
+
+    <form align="center" action="{{ url_for('predict')}}"method="post">
+        <label for="username">Enter the Username and press submit button to get top 5 product recommendations</label> <br>
+    	<input type="text" style="text-align:center" name="username" placeholder="User Name" required="required" />
+        <br>
+
+        <button align="center" type="submit" class="btn btn-primary btn-block btn-large">Submit</button>
+
+    </form>
+
+    <p><h1 style="color:#ff1e00;font-size:20px;">{{ message_display }}</h1>
+
+     <div>
+       <h1 class="header">Top 5 Recommended Products</h1>
+       <table class="styled-table" style="border:1px solid black;margin-left:auto;margin-right:auto;">
+          <thead>
+             <tr>
+                <th>Product Name</th>
+             </tr>
+          </thead>
+          <tbody>
+            {% for op in output %}
+             <tr>
+                <td>{{op}}</td>
+             </tr>
+            {% endfor %}
+          </tbody>
+       </table>
+    </div>
+
+ </div>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <footer>
+    <div style="color:#1100ff;font-size:20px;">
+      Created by Jophin Joseph N, 2022
+    </div>
+</footer>
+</body>
+
+</html>
